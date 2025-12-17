@@ -19,7 +19,7 @@ jobs:
   set-vars:
     permissions:
       contents: read
-    runs-on: ubuntu-22.04
+    runs-on: blacksmith-4vcpu-ubuntu-2204
     outputs:
       image-tag: ${{ steps.image.outputs.tag}}
       platforms: ${{ steps.platforms.outputs.platforms }}
@@ -102,7 +102,7 @@ jobs:
       contents: write # for git to push upgrade commit if not already deployed
       packages: write # for pushing packages to GHCR, which is used by cd.apps.argoproj.io to avoid polluting Quay with tags
     if: false
-    runs-on: ubuntu-22.04
+    runs-on: blacksmith-4vcpu-ubuntu-2204
     steps:
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       - run: git clone "https://$TOKEN@github.com/argoproj/argoproj-deployments"
